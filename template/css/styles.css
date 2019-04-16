@@ -1,0 +1,305 @@
+
+#sort {
+    margin-top: 100px;
+}
+
+#property {
+    margin-left: 150px;
+}
+
+
+#qq {
+    padding-top: 20px;
+}
+
+
+#lan {
+    margin-left: -8px;
+    margin-right: -8px;
+    height: 184px;
+    background: url("img/com.png");
+}
+
+#h1  {
+     color: rgb(59, 89, 152);
+}
+
+#menu8{
+    padding-left: 235px;
+    margin-top: -16px;
+    margin-left: -215px;
+    margin-right: -8px;
+    height: 40px;
+    background-color: rgb(59, 89, 152);
+    font-family: Arial;
+
+
+} 
+#menu8 li{
+    display: inline-block;
+}
+#menu8 a:link, #menu8 a:visited{
+    color: #FFFFFF; 
+    text-decoration: none; 
+    display: block;
+    padding: 0px 13px;
+    line-height: 40px;
+    font-size: 14px;
+
+}
+#menu8 a:hover{
+    color: #FFFFFF;
+    text-decoration: none;
+    background-color: rgb(0, 123, 182);
+
+}
+#menu8 ul{
+    padding: 0px;
+}
+
+
+#range1 {
+    width: 350px;
+    
+    height: 100%;
+    min-height: 400px;
+   
+}
+
+#range1 .login-wr {
+    position: relative; 
+    background: #ecf0f1;
+    border-radius: 5px;
+    padding: 0px;
+}
+
+#range1 h2 {
+    text-align: center;
+    font-weight: 200;
+    font-size: 2em;
+    margin-top: 10px;
+    color: #34495e;
+}
+
+#range1 .form {
+    padding-top: 20px;
+    text-align: center;
+}
+
+#range1 input[type="text"], 
+#range1 input[type="password"],
+#range1 button {
+    width: 80%;
+    margin-bottom: 25px;
+    height: 40px;
+    border-radius: 5px;
+}
+      
+#range1 input[type="text"],
+#range1 input[type="password"] {
+    border: 1px solid rgb(59, 89, 152);
+    padding: 0 0 0 10px;
+    font-size: 14px;
+}
+
+#range1 a {
+    text-align: center;
+    font-size: 12px;
+    color: 1px solid rgb(59, 89, 152);
+}
+      
+#range1 button {
+    background: rgb(59, 89, 152); ; 
+    color: white;
+    font-size: 18px;
+    border: 1px solid rgb(59, 89, 152);
+
+}
+
+#form1{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+#s {
+    margin-left: 240px;
+    width: 819px;
+    height: 30px;
+}
+
+
+
+#wrap {
+    margin-right: 50px;
+}
+
+
+#menu1 {
+    padding-left: 200px;
+}
+
+#menu1 li{
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid ;
+
+}
+
+
+#img1 {
+
+    background: url("/template/img/scale.png");
+}
+
+#img2 {
+    background: url("img/car.png");
+}
+
+#img3 {
+    background: url("img/job.png");
+}
+
+
+#image {
+    float: right;
+    position: relative;
+    bottom: 200px;
+}
+
+
+#categoria, #content, #sortirovka{
+
+    position: absolute;
+    top: 40px;
+}
+
+#categoria{
+    background: #ecf0f1;
+    width: 296px;
+    height: 100%;
+    left: 0px;
+
+}
+
+#content{
+    line-height: 20px;
+    text-align: left;
+    width: 650px;
+    left: 350px;
+    margin-bottom: 200px;
+}
+
+#image {
+    width: 150px;
+    height: 150px;
+    border: 1px solid rgb(59, 89, 152);
+    border-radius: 5px;
+}
+
+#sortirovka{
+    width: 300px;
+    height: 100%;
+    left: 1049px;
+}
+
+
+#lin {
+    border-bottom: 1px solid black;
+}
+
+.name , .price{
+    font-weight: bold;
+    
+}
+
+
+#menu3 ul{list-style-type: none; width: 200px;}
+#menu3 li{margin-bottom: 5px;}
+#menu3 a:link, #menu3 a:visited{
+    text-decoration: none;
+    color: black;
+    font: 13px Arial;
+    border: 1px solid rgb(133, 135, 140);
+    display: block;
+    padding: 0px 5px;
+    line-height: 30px;
+    border-radius: 5px;
+}
+
+#menu3 a:hover{
+    
+    color: white;
+    background-color: rgb(59, 89, 152);
+}
+
+#banner {
+    height: 300px;
+    background: url("img/banner1.jpg");
+}
+
+
+
+
+/* стили для пагинации */
+
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+    margin: 0 4px;
+    color: black;
+    float: left;
+    padding: 6px 12px;
+    text-decoration: none;
+    border: 1px solid rgb(133, 135, 140);
+    border-radius: 3px;
+}
+
+li a.active {
+    background-color: rgb(59, 89, 152);
+    color: white;
+    border: 1px solid rgb(59, 89, 152);
+}
+
+ul.pagination li a:hover:not(.active) {
+    background-color: rgb(59, 89, 152);
+}
+
+
+#form {
+    height: 500px;
+    width: 500px;
+    border: 1px solid blue;
+}
+
+/* стили для формы добавления нового объявления */
+
+#form_add {
+    width: 450px;
+    position: absolute;
+    padding-left: 180px;
+    top: 45px;
+
+}
+
+#form_text {
+    width: 180px;
+    position: relative;
+    line-height: 26px;
+}
+
+.input {
+    height: 20px;
+    width: 250px;
+
+}
+
+#menu4 {
+    margin-left: 140px;
+}
