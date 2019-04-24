@@ -1,4 +1,5 @@
 
+
 #sort {
     margin-top: 100px;
 }
@@ -138,27 +139,20 @@
 }
 
 #menu1 li{
-    display: inline-block;
+    display:inline-block;
     height: 200px;
     width: 200px;
     border-radius: 5px;
     border: 1px solid ;
+    margin: 2px;
+    text-decoration: none;
 
 }
 
-
-#img1 {
-
-    background: url("/template/img/scale.png");
+img {
+  
 }
 
-#img2 {
-    background: url("img/car.png");
-}
-
-#img3 {
-    background: url("img/job.png");
-}
 
 
 #image {
@@ -267,6 +261,10 @@ li a.active {
     border: 1px solid rgb(59, 89, 152);
 }
 
+li a {
+    text-decoration: none;
+}
+
 ul.pagination li a:hover:not(.active) {
     background-color: rgb(59, 89, 152);
 }
@@ -302,4 +300,13 @@ ul.pagination li a:hover:not(.active) {
 
 #menu4 {
     margin-left: 140px;
+}
+
+.product {
+    font-size: 25px;
+}
+
+.product_header {
+    font-size: 30px;
+    font-weight: 
 }
