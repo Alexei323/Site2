@@ -3,9 +3,11 @@
 return array(
     
     'product/([0-9]+)' => 'product/view/$1',
+    'product' => 'site/error',
     
     'category/([0-9]+)/page-([0-9]+)' => 'list/category/$1/$2',
     'category/([0-9]+)' => 'list/category/$1',  
+    'category' => 'site/index/',
 
     'user/register' => 'user/register',
     'user/login' => 'user/login',
@@ -20,6 +22,5 @@ return array(
     'admin/public' => 'admin/public',
     'admin' => 'admin/index',
 
-    '' => 'site/index', 
-    
+    '' => 'site/index',
 );
