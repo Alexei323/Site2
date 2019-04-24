@@ -26,10 +26,7 @@
                 </a>
                 <p>ул. <?= $product['outside'] ?>, дом <?= $product['home'] ?>  , квартира №<?= $product['nomer'] ?></p>
                 <p class="content"> <?= $product['content'] ?></p>
-                <p>
                     <span class="contact"> <?= $product['contact'] ?></span>
-                    <span class="user"> user </span>
-                </p>
                 <p class="date"><?= $product['date'] ?></p>
             </div>
                 <br>
@@ -39,3 +36,5 @@
 
         <?php echo $pagination->get(); ?>
     </div>
+
+<?php include ROOT . '/views/layouts/footer.php'; ?>
