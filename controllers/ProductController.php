@@ -12,7 +12,7 @@ class ProductController
 
         $product = Product::getProductById($productId);
     	if (!$product) {
-    		header("Location: /product/");
+    		 header("Location: /error404/");  
     	}
 
         require_once(ROOT . '/views/product/view.php');
