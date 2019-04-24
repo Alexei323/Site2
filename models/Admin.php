@@ -1,18 +1,19 @@
 <?php
-
 	class Admin {
 
-		 public static function getPublic()
+	    public static function getPublic()
             {
                                
             $db = Db::getConnection();            
             $publics = array();
 
-            $result = $db->query("SELECT id, header, square, price, outside,
-                                home, nomer, content, contact, date FROM apartments "
-                    . "WHERE status = '0' "
-                    . "ORDER BY id ASC ");
-
+    	    $sql = "SELECT id, header, square, price, outside,
+		    home, nomer, content, contact, date FROM apartments "
+		  . "WHERE status = 0";
+                              
+            $result = $db->prepare($sql);
+            $result->execute();
+            
             $i = 0;
             while ($row = $result->fetch()) {
                 $publics[$i]['id'] = $row['id'];
@@ -27,22 +28,32 @@
                 $publics[$i]['date'] = $row['date'];
                 $i++;
             }
-
-           		 return $publics;  
+		    
+                return $publics;  
     	}  
 
     	public static function getAdd($str)
     	{
-    		$db = Db::getConnection();     
+    	    $db = Db::getConnection(); 
+		
+            $sql = "UPDATE apartments SET status='1' WHERE id = :id";
+		
+            $result = $db->prepare($sql);
+            $result->bindParam(':id', $str, PDO::PARAM_INT);
+            $result->execute();
 
-            $result = $db->query("UPDATE apartments SET status='1' WHERE id='$str'");
+
     	}  
 
     	public static function getDel($str)
     	{
-    		$db = Db::getConnection();     
-
-            $result = $db->query("DELETE FROM apartments WHERE id='$str' ");
+    	    $db = Db::getConnection();   
+		
+            $sql = "DELETE FROM apartments WHERE id = :id";
+             
+            $result = $db->prepare($sql);
+            $result->bindParam(':id', $str, PDO::PARAM_INT);
+            $result->execute();
     	}  
 
-	}
+}
