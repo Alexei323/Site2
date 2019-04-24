@@ -13,9 +13,9 @@ class UserController
         
 
         if (isset($_POST['submit'])) {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $name = strip_tags($_POST['name']);
+            $email = strip_tags($_POST['email']);
+            $password = strip_tags($_POST['password']);
 
             
             //В переменной храняться ошибки, если данные были введены неправильно
@@ -60,8 +60,8 @@ class UserController
         $password = '';
         
         if (isset($_POST['submit'])) {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $email = strip_tags($_POST['email']);
+            $password = strip_tags($_POST['password']);
             
             $errors = false;
                         
@@ -82,11 +82,10 @@ class UserController
             } else {
                 // Если данные правильные, запоминаем пользователя (сессия)
                 User::auth($userId);
+
                 // Перенаправляем пользователя в закрытую часть - кабинет 
-                header("Location: /cabinet/");
-
+                header("Location: /cabinet");
             }
-
         }
 
         require_once(ROOT . '/views/user/login.php');
@@ -97,10 +96,11 @@ class UserController
 
     //Удаляем данные о пользователе из сессии
     public function actionLogout()
-    {
-        
+    {   
+        session_start();
         unset($_SESSION["user"]);
         header("Location: /");
     }
 
 }
+
