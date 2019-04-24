@@ -11,8 +11,12 @@ class Category
 
         $categoryList = array();
 
-        $result = $db->query('SELECT id, name FROM category '
-                . 'ORDER BY sort_order ASC');
+        $sql = "SELECT id, name FROM category
+                ORDER BY sort_order ASC";
+                  
+        $result = $db->prepare($sql);
+        $result->execute();
+
 
         $i = 0;
         while ($row = $result->fetch()) {
@@ -22,6 +26,25 @@ class Category
         }
 
         return $categoryList;
+    }
+
+
+    //Выводит картинку для категории.
+    public static function getImage($id)
+    {
+        // Название изображения-пустышки
+        $noImage = 'no-image.png';
+        // Путь к папке с товарами
+        $path = '/template/img/';
+        // Путь к изображению
+        $pathToCategoriaImage = $path . $id . '.png';
+        if (file_exists($_SERVER['DOCUMENT_ROOT'].$pathToCategoriaImage)) {
+            // Если изображение существует
+            // Возвращаем путь 
+            return $pathToCategoriaImage;
+        }
+        // Возвращаем путь изображения-пустышки
+        return $path . $noImage;
     }
 
 }
