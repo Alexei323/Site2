@@ -14,11 +14,8 @@
 							<li><a href="/user/login/">ВХОД</a></li>
 					<?php else: ?>
 							<li><a href="/cabinet/">Личный кабинет</a></li>
-							<li><a href="/admin/">Панель управления</a></li>
 							<li><a href="/user/logout/">ВЫХОД</a></li>
 					<?php endif; ?>
 				</ul>
 			</div>
 		</div>
-	</body>
-</html>
