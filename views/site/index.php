@@ -1,7 +1,5 @@
-
 <?php include ROOT . '/views/layouts/header.php'; ?>
 
-<body>      
 <div id="categoria">
    <div id="menu3">
         <ul>
@@ -18,27 +16,18 @@
 </div>
 <div id="menu4">
     <div id="menu1">
-            <ul>
-                <a href="/category/1"><li id="img1">Квартиры</li></a>     
-                <li id=""><a href="">Автомобили</a></li>            
-                <li id=""><a href="">Работа</a></li>
-                <li id=""><a href="">Услуги</a></li>
-            </ul>
-            <ul>
-                <li><a href="">Бизнес</a></li>
-                <li><a href="">Техника</a></li>
-                <li><a href="">Спорт и отдых</a></li>
-                <li><a href="">Стройка</a></li>
-            </ul>
-            <ul>
-                <li><a href="">Мебель</a></li>
-                <li><a href="">Личные вещи</a></li>
-                <li><a href="">Дом и сад</a></li>
-                <li><a href="">Разное</a></li>
-            </ul>
+        <ul>
+            <?php foreach ($categories as $categoryItem): ?>                            
+                <li>
+                    <a id="qwe" href="/category/<?php echo $categoryItem['id']; ?>">
+                    <div id=""><?php echo $categoryItem['name']; ?></div>
+                    <img src="<?php echo Category::getImage($categoryItem['id']); ?>" alt="" />
+                  </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </div>
 </div>
-</body>
-</html>
 
+<?php include ROOT . '/views/layouts/footer.php'; ?>
 
