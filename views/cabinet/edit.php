@@ -10,23 +10,20 @@
             <?php endforeach; ?>
         </ul>
     <?php endif; ?>
-        <p><h3>Редактирование данных</h3>
+        <h3>Редактирование данных</h3>
             <div id="range1">
              <div class="login-wr">
                  <div class="form">
                     <form action="" method="POST">
                       <p>Имя: </p>
                         <input type="text" name="name" placeholder="Имя" value="<?php echo $name; ?>"/>
-                        <p>Пароль:</p>
+                        	<p>Пароль:</p>
                         <input type="password" name="password" placeholder="Пароль" value="<?php echo $password; ?>"/>
                         <input type="submit" name="submit" value="Сохранить" />
-                     </p>
-                 </form>
+                 	</form>
                 </div>
               </div>
             </div>
     <?php endif; ?>
 
-
-         
-                
+<?php include ROOT . '/views/layouts/footer.php'; ?>
