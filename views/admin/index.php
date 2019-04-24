@@ -1,6 +1,5 @@
 <?php include ROOT . '/views/layouts/header.php'; ?>
 
-
 <div id="categoria">
     <div id="menu3">
         <ul>              
@@ -9,3 +8,6 @@
         </ul>
     </div>
 </div>
+
+<?php include ROOT . '/views/layouts/footer.php'; ?>
+
