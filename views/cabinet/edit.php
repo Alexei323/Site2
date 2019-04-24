@@ -27,3 +27,7 @@
     <?php endif; ?>
 
 <?php include ROOT . '/views/layouts/footer.php'; ?>
+
+
+         
+                
