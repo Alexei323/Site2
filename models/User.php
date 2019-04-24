@@ -43,7 +43,7 @@ class User
     {
         $db = Db::getConnection();
 
-        $sql = 'SELECT * FROM user WHERE email = :email AND password = :password';
+        $sql = "SELECT * FROM user WHERE email = :email AND password = :password";
 
         $result = $db->prepare($sql);
         $result->bindParam(':email', $email, PDO::PARAM_INT);
@@ -51,6 +51,7 @@ class User
         $result->execute();
 
         $user = $result->fetch();
+        
         if ($user) {
             return $user['id'];
         }
@@ -62,9 +63,9 @@ class User
     ///Запоминаем пользователя
     public static function auth($userId)
     {   
-
         $_SESSION['user'] = $userId;
     }
+
 
     public static function checkLogged()
     {
@@ -85,7 +86,6 @@ class User
         return true;
     }
 
-
     //Проверяет имя: не меньше, чем 2 символа
     public static function checkName($name)
     {
@@ -94,7 +94,6 @@ class User
         }
         return false;
     }
-
 
     //Проверяет имя: не меньше, чем 6 символов
     public static function checkPassword($password)
@@ -105,7 +104,6 @@ class User
         return false;
     }
 
-
     //Проверяет email
     public static function checkEmail($email)
     {
@@ -115,7 +113,7 @@ class User
         return false;
     }
 
-
+    //Проверяет не занят ли email другим пользователем.
     public static function checkEmailExists($email)
     {
 
@@ -132,7 +130,6 @@ class User
         return false;
     }
 
-
     //Возвращат id юзера
     public static function getUserById($id)
     {
@@ -147,44 +144,8 @@ class User
             $result->setFetchMode(PDO::FETCH_ASSOC);
             $result->execute();
 
-
             return $result->fetch();
         }
-    }
-
-
-    //Добавляет новое объявление категории квартиры
-    public static function add($userId, $header, $square, $price, $outside, $home, $nomer, $content, $contact) {
-
-        //
-        $categoryId = '1';
-        $status = '0';
-        $date = '24.10.2019';
-
-        $db = Db::getConnection();
-
-        $sql = 'INSERT INTO apartments 
-        (id_user, header, square, price, outside, home, nomer, content, contact, category_id, status, date) '
-        . 'VALUES 
-        (:id_user, :header, :square, :price, :outside, :home, :nomer, :content, :contact, :category_id, :status, :date)';
-    
-
-        $result = $db->prepare($sql);
-        $result->bindParam(':id_user',      $userId,        PDO::PARAM_STR);
-        $result->bindParam(':header',       $header,        PDO::PARAM_STR);
-        $result->bindParam(':square',       $square,        PDO::PARAM_STR);
-        $result->bindParam(':price',        $price,         PDO::PARAM_STR);
-        $result->bindParam(':outside',      $outside,       PDO::PARAM_STR);
-        $result->bindParam(':home',         $home,          PDO::PARAM_STR);
-        $result->bindParam(':nomer',        $nomer,         PDO::PARAM_STR);
-        $result->bindParam(':content',      $content,       PDO::PARAM_STR);
-        $result->bindParam(':contact',      $contact,       PDO::PARAM_STR);
-        $result->bindParam(':category_id',  $categoryId,    PDO::PARAM_STR);
-        $result->bindParam(':status',       $status,        PDO::PARAM_STR);
-        $result->bindParam(':date',         $date,          PDO::PARAM_STR);
-
-        return $result->execute();
-
     }
 
 }       
