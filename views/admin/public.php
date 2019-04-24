@@ -16,7 +16,7 @@
     <br><br>
         <?php foreach ($publics as $public): ?>
             <div class="note">
-                <a href="">
+                <a href="/product/<?php echo $public['id'];?>">
                     <span class="name">
                         <?= $public['header'] ?>-ком. квартира , 
                         <?= $public['square'] ?> кв.м</span>
@@ -26,18 +26,18 @@
                 <p class="content"> <?= $public['content'] ?></p>
                 <p>
                     <span class="contact"> <?= $public['contact'] ?></span>
-
                 </p>
                 <p class="date"><?= $public['date'] ?></p>
             </div>
             <div>
             	 <a href="/admin/add/<?php echo $public['id'];?>">Добавить на сайт</a><br><br>
-            	  <a href="/admin/del/<?php echo $public['id'];?>">Удалить</a>
+            	 <a href="/admin/del/<?php echo $public['id'];?>">Удалить</a>
             </div>
                 <br>
                 <br>
                     <div id="lin"></div>
                 <br>
         <?php endforeach; ?>
-
     </div>
+
+<?php include ROOT . '/views/layouts/footer.php'; ?>
