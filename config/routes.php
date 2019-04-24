@@ -3,8 +3,7 @@
 return array(
     
     'product/([0-9]+)' => 'product/view/$1',
-    'product' => 'site/error',
-    
+ 
     'category/([0-9]+)/page-([0-9]+)' => 'list/category/$1/$2',
     'category/([0-9]+)' => 'list/category/$1',  
     'category' => 'site/index/',
@@ -21,6 +20,8 @@ return array(
     'admin/add/([0-9]+)' => 'admin/add/$1',
     'admin/public' => 'admin/public',
     'admin' => 'admin/index',
+
+    'error404' => 'site/error',
 
     '' => 'site/index',
 );
