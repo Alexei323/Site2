@@ -30,13 +30,13 @@ class AdminController extends AdminBase
     }
 
     //Администратор разрешает публикацию объвления
-    public function actionAdd($a) {
+    public function actionAdd($str) {
 
         // Проверка доступа
         self::checkAdmin();
 
-        $b = new Admin();
-        $b->getAdd($a);
+        $admin = new Admin();
+        $admin->getAdd($str);
 
         header("Location: /admin/public/");
     }
@@ -54,3 +54,4 @@ class AdminController extends AdminBase
     }
 
 }
+
