@@ -20,7 +20,9 @@
         <a href="/user/register/"> <p> У вас нет аккаунта? Регистрация </p></a>
       </div>
      </div>
-</div>    
+</div>   
+
+<?php include ROOT . '/views/layouts/footer.php'; ?>
 
 
 
