@@ -16,15 +16,21 @@ class Product
                     $db = Db::getConnection();            
                     $products = array();
 
-                    $result = $db->query("SELECT id, header, square, price, outside,
+                    $sql = "SELECT id, header, square, price, outside,
                                         home, nomer, content, contact, date FROM apartments "
-                            . "WHERE status = '1' AND category_id = '$categoryId' "
-                            . "ORDER BY id ASC "                
-                            . "LIMIT ".self::SHOW_BY_DEFAULT
-                            . ' OFFSET '. $offset);
+                            . "WHERE status = 1 AND category_id = :categoryId 
+                               ORDER BY id ASC  
+                               LIMIT :limit
+                               OFFSET :offset";
+                              
+                    $result = $db->prepare($sql);
+                    $result->bindValue(':categoryId', $categoryId, \PDO::PARAM_INT);
+                    $result->bindValue(':offset', $offset, \PDO::PARAM_INT);
+                    $result->bindValue(':limit', self::SHOW_BY_DEFAULT, \PDO::PARAM_INT);
+                    $result->execute();
 
 
-                         $i = 0;
+                $i = 0;
             while ($row = $result->fetch()) {
                 $products[$i]['id'] = $row['id'];
                 $products[$i]['header'] = $row['header'];
@@ -51,68 +57,34 @@ class Product
 
         if ($id) {                        
             $db = Db::getConnection();
-            
-            $result = $db->query('SELECT * FROM apartments WHERE id=' . $id);
-            $result->setFetchMode(PDO::FETCH_ASSOC);
-            
+
+            $sql = "SELECT * FROM apartments WHERE id = :id";
+                  
+            $result = $db->prepare($sql);
+            $result->bindValue(':id', $id, \PDO::PARAM_INT);
+            $result->execute();
+
             return $result->fetch();
         }
     }
 
 
-    //Находит нужное количество
+    //Находит нужное количество объявлений в категории.
      public static function getTotalProductsInCategory($categoryId)
     {
         $db = Db::getConnection();
 
-        $result = $db->query('SELECT count(id) AS count FROM apartments '
-                . 'WHERE status="1" AND category_id ="'.$categoryId.'"');
-        $result->setFetchMode(PDO::FETCH_ASSOC);
+        $sql = "SELECT count(id) AS count FROM apartments 
+                WHERE status='1' AND category_id = :categoryId";
+                  
+        $result = $db->prepare($sql);
+        $result->bindValue(':categoryId', $categoryId, \PDO::PARAM_INT);
+        $result->execute();
+
         $row = $result->fetch();
 
         return $row['count'];
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    /**
-     * Returns an array of recommended products
-     */
-    public static function getRecommendedProducts()
-    {
-        $db = Db::getConnection();
-
-        $productsList = array();
-
-        $result = $db->query('SELECT id, name, price, image, is_new FROM product '
-                . 'WHERE status = "1" AND is_recommended = "1"'
-                . 'ORDER BY id DESC ');
-
-        $i = 0;
-        while ($row = $result->fetch()) {
-            $productsList[$i]['id'] = $row['id'];
-            $productsList[$i]['name'] = $row['name'];
-            $productsList[$i]['image'] = $row['image'];
-            $productsList[$i]['price'] = $row['price'];
-            $productsList[$i]['is_new'] = $row['is_new'];
-            $i++;
-        }
-
-        return $productsList;
-    }
 
 }
