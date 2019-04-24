@@ -32,8 +32,8 @@ class CabinetController
         $result = false;     
 
         if (isset($_POST['submit'])) {
-            $name = $_POST['name'];
-            $password = $_POST['password'];
+            $name = strip_tags($_POST['name']);
+            $password = strip_tags($_POST['password']);
             
             $errors = false;
             
@@ -74,14 +74,14 @@ class CabinetController
 
 
          if (isset($_POST['submit'])) {
-            $header = $_POST['header'];
-            $square = $_POST['square'];
-            $price = $_POST['price'];
-            $outside = $_POST['outside'];
-            $home = $_POST['home'];
-            $nomer = $_POST['nomer'];
-            $content = $_POST['content'];
-            $contact = $_POST['contact'];
+            $header = strip_tags($_POST['header']);
+            $square = strip_tags($_POST['square']);
+            $price = strip_tags($_POST['price']);
+            $outside = strip_tags($_POST['outside']);
+            $home = strip_tags($_POST['home']);
+            $nomer = strip_tags($_POST['nomer']);
+            $content = strip_tags($_POST['content']);
+            $contact = strip_tags($_POST['contact']);
 
             
             //В переменной храняться ошибки, если данные были введены неправильно
@@ -120,7 +120,7 @@ class CabinetController
             if ($errors == false) {
 
                 //Добавляем объявление
-                $result = User::add($userId, $header, $square, $price, $outside,
+                $result = Locate::add($userId, $header, $square, $price, $outside,
                                     $home, $nomer, $content, $contact);
             }
 
