@@ -22,6 +22,7 @@ return array(
     'admin' => 'admin/index',
 
     'error404' => 'site/error',
+    '(^[a-zA-Z0-9_]{1,}$)' => 'site/error',
 
     '' => 'site/index',
 );
